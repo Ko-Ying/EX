@@ -19,9 +19,9 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
         id<-as.integer(id)
         pdata1<-c()
         
-        for (i in seq_along(id)) {
+        for (i in id) {
                 pdata2 <- read.csv(paste(directory, "./", formatC(i,flag = "0" ,width = 3 ), pattern=".csv", sep = ""))
                 pdata1 <- c(pdata1, pdata2[[pollutant]])
         }
-        mean(na.omit(pdata1))
+        return(mean(na.omit(pdata1)))
 }
